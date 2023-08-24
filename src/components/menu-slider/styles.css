@@ -1,0 +1,36 @@
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .875rem;
+  color: #fff;
+  font-weight: 500;
+  height: 150px;
+  max-height: 100vh;
+}
+
+.keen-slider {
+  background-color: #fff;
+}
+
+
+.number-slide1 {
+  background: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.container-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+
+  gap: 10px;
+  color: #FF005C;
+  font-weight: bold;
+}
