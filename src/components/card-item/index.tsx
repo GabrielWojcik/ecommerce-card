@@ -9,7 +9,7 @@ export function CardItem() {
         {
           PRODUCTS.map(item => {
                return(
-                    <Link href={`/product/${item.name}`}>
+                    <Link key={item.name} href={`/product/${item.name}`}>
                     <ContainerCard>
                          <Image src={item.image} alt=""/>
                               <ContainerDescription>

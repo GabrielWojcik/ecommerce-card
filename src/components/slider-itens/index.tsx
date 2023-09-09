@@ -30,7 +30,7 @@ export default function SliderItens() {
                     return(
                         <ContainerItens key={index} className="keen-slider__slide number-slide1">
                             <Box>
-                            <img
+                            {/* <img
                             className="img-responsive" 
                             src={item.product.imageObjects[0].thumbnail} 
                             alt=""  
@@ -40,7 +40,7 @@ export default function SliderItens() {
                             
                             <button> 
                                 R$ {item.product.priceSpecification.price} <MdFavoriteBorder size={15} />
-                            </button>
+                            </button> */}
                             </Box>
                         
                         </ContainerItens>

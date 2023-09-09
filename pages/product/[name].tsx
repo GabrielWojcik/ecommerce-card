@@ -22,7 +22,7 @@ export default function Product() {
         brand: string, price: number, description: string
          }) => {
             return (
-                <ContainerItem>
+                <ContainerItem key={item.name}>
                     <ContainerMain>
                         <ContainerImage>
                             <CardImage>
