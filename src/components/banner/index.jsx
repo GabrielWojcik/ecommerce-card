@@ -1,11 +1,15 @@
 // import Banner3 from "../../assets/banners/banner-3.webp"
-import "./styles.css"
-
+import Image from "next/image"
+import Banner1 from "../../../images/perfume-1.jpg"
+import { ContainerBanner, ContainerTitle } from "./styles"
 
 export default function Banner() {
     return(
-        <div className="container-banner-secundario">
-            {/* <img id="img-banner-secundario" alt="" src={Banner3} /> */}
-        </div>
+        <ContainerBanner>
+            {/* <Image src={Banner1} alt="" /> */}
+            <ContainerTitle>
+                <h1>Nossos Produtos</h1>
+            </ContainerTitle>
+        </ContainerBanner>
     )
 }

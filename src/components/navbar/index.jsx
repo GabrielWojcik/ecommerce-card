@@ -1,13 +1,7 @@
-// import "./styles.css";
 import React, { useState } from "react";
-// import { NavLink, useNavigate } from 'react-router-dom';
-
-// import Menu from "../../assets/menu.png";
-// import Favorite from "../../assets/favorite.png";
-// import User from "../../assets/user.png";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import MenuMobile from "../menu/menu"
 import Link from "next/link";
-// import useRouterNavBar from "../../hooks/router";
 
 export default function MenuMain() {
     const [isActiveMenu, setIsActiveMenu] = useState(false)
@@ -19,14 +13,23 @@ export default function MenuMain() {
         <div className="container">
             <div className="container-navbar">
                 <p className="logo">Beauty</p>
-                <p id="sacola" className="sac">Favoritos</p>
+               <Link href="/primeira-compra"><p id="sacola" className="sac">Primeira Compra</p></Link>
                 <p id="pagamento" >+ Vendidos</p>
-                <p id="confirmacao" >Promoções</p>
+                <p id="confirmacao">Promoções</p>
                 
                 <Link href="/login">
                 <p>
                     Entre na sua conta
                 </p>
+                </Link>
+
+                <Link href="/carrinho">
+                <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                    <AiOutlineShoppingCart size={25} />
+                    <p>
+                        Carrinho
+                    </p>
+                </div>
                 </Link>
             </div>
         </div>

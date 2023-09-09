@@ -61,6 +61,8 @@ export const Card = styled.div`
             background-color: #FF005C;
             font-weight: bold;
             cursor: pointer;
+            border: none;
+            color: #fff;
         }
 
     }

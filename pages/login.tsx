@@ -4,12 +4,14 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 
+
 interface DecodeGoogle {
     name: string
     given_name: string
     email: string
     picture: string
 }
+
 
 export default function Login(){
 
@@ -19,8 +21,6 @@ export default function Login(){
     const [email, setEmail] = useState<string>()
     const [profilePic, setProfilePic] = useState<string>()
     const [newUser, setNewUser] = useState<boolean>()
-
-
 
     function Authenticantion(credentialResponse: string | any) {
         const decoded: DecodeGoogle = jwt_decode(credentialResponse);

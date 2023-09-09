@@ -1,0 +1,6 @@
+// Configuração para rodar o styled-components
+
+{
+    "presets": ["next/babel"],
+    "plugins": [["styled-components", { "ssr": true, "displayName": true }]]
+}
