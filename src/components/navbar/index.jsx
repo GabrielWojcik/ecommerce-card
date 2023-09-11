@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import MenuMobile from "../menu/menu"
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
+
 
 export default function MenuMain() {
     const [isActiveMenu, setIsActiveMenu] = useState(false)
+    const { user } = useContext(AuthContext);
     
     return(
         <>
@@ -12,9 +15,11 @@ export default function MenuMain() {
         <nav>
         <div className="container">
             <div className="container-navbar">
-               <p className="logo">
-                    Beauty
-                </p>
+               <Link href="/">
+                    <p className="logo">
+                        Beauty
+                    </p>
+               </Link>
                <Link href="/primeira-compra">
                     <p id="sacola" className="sac">
                         Primeira Compra
