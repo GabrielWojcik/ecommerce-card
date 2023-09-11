@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Card, ContainerLogin } from "../styles/login/styles";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import { AuthContext } from "@/context/AuthContext";
 
 
 interface DecodeGoogle {
@@ -15,6 +16,10 @@ interface DecodeGoogle {
 
 export default function Login(){
 
+    const { user, setUser } = useContext(AuthContext);
+    
+    console.log('user context', user)
+
     const [isApproved, setIsApproved] = useState(false)    
     const [name, setName] = useState<string>()
     const [fullName, setFullName] = useState<string>()
@@ -22,20 +27,28 @@ export default function Login(){
     const [profilePic, setProfilePic] = useState<string>()
     const [newUser, setNewUser] = useState<boolean>()
 
+    
     function Authenticantion(credentialResponse: string | any) {
-        const decoded: DecodeGoogle = jwt_decode(credentialResponse);
-        setName(decoded.name)
-        setEmail(decoded.email)
-        setFullName(decoded.given_name)
-        setProfilePic(decoded.picture)
-        setIsApproved(true)
+        if (credentialResponse) {
+            const decoded: DecodeGoogle = jwt_decode(credentialResponse);
+            setName(decoded.name)
+            setUser(decoded.name)
+            setEmail(decoded.email)
+            setFullName(decoded.given_name)
+            setProfilePic(decoded.picture)
+            setIsApproved(true)
+        }
     }
 
     useEffect(() => {
+        if (user === undefined) {
+            console.log('é undefined')
+        }
+
         if(isApproved === true) {
             // navigate("/perfil")
         }
-    },[isApproved])
+    },[isApproved, user])
 
     return(
         <ContainerLogin>
