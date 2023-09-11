@@ -1,4 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 @media screen and (max-width: 999px) {
+
+
   .container {
       display: none;
   }
@@ -35,13 +42,15 @@
       display: none;
   }
   .container-navbar {
+
       display: flex;
       justify-content: space-around;
       align-items: center;
 
       padding: 10px;
-
       height: 37px;
+      background-color: #FF005C;
+      color: #fff;
   }
 
   .container {
@@ -57,23 +66,26 @@
   
   .logo {
       font-size: 28px;
-      color: #FF005C;
+      color: #fff;
       margin: 0;
       font-family: 'Lobster', sans-serif;
       cursor: pointer;
   }
   
   #sacola {
-      width: 43px;
+      color: #fff;
+      /* width: 43px; */
       height: 24px;
   }
   
   #pagamento {
+        color: #fff;
        width: 72px;
        height: 24px;
   }
   
   #confirmacao {
+      color: #fff;
       width: 80px;
       height: 24px;
   }
