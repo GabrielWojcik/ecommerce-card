@@ -14,7 +14,7 @@ export default function Product() {
     useEffect(() => {
         const filterProduct = PRODUCTS.filter(name => name.name === productRouter)
         setData(filterProduct)
-    },[data])
+    },[data, productRouter])
 
     return(
         <>

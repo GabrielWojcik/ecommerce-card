@@ -12,10 +12,26 @@ export default function MenuMain() {
         <nav>
         <div className="container">
             <div className="container-navbar">
-                <p className="logo">Beauty</p>
-               <Link href="/primeira-compra"><p id="sacola" className="sac">Primeira Compra</p></Link>
-                <p id="pagamento" >+ Vendidos</p>
-                <p id="confirmacao">Promoções</p>
+               <p className="logo">
+                    Beauty
+                </p>
+               <Link href="/primeira-compra">
+                    <p id="sacola" className="sac">
+                        Primeira Compra
+                    </p>
+                </Link>
+               
+               <Link href="/mais-vendidos">
+                    <p id="pagamento">
+                        + Vendidos
+                    </p>
+                </Link>
+               
+               <Link href="/promocoes">
+                    <p id="confirmacao">
+                        Promoções
+                    </p>
+               </Link>
                 
                 <Link href="/login">
                 <p>
