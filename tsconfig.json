@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "context/PefilContext/index.tsx", "pages/index.jsx", "pages/product/[name].jsx", "context/AuthContext.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/context/PefilContext/index.tsx", "pages/index.jsx", "pages/product/[name].jsx", "src/context/AuthContext.ts"],
   "exclude": ["node_modules"]
 }

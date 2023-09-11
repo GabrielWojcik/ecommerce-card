@@ -3,8 +3,8 @@ import { Card, ContainerLogin } from "../styles/login/styles";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
-import { AuthContext } from "@/context/AuthContext";
-
+import { AuthContext } from '@/src/context/AuthContext';
+import { useRouter } from 'next/router';
 
 interface DecodeGoogle {
     name: string
@@ -13,19 +13,18 @@ interface DecodeGoogle {
     picture: string
 }
 
-
 export default function Login(){
 
     const { user, setUser } = useContext(AuthContext);
     
-    console.log('user context', user)
-
     const [isApproved, setIsApproved] = useState(false)    
     const [name, setName] = useState<string>()
     const [fullName, setFullName] = useState<string>()
     const [email, setEmail] = useState<string>()
     const [profilePic, setProfilePic] = useState<string>()
     const [newUser, setNewUser] = useState<boolean>()
+
+    const router = useRouter();
 
     
     function Authenticantion(credentialResponse: string | any) {
@@ -37,14 +36,13 @@ export default function Login(){
             setFullName(decoded.given_name)
             setProfilePic(decoded.picture)
             setIsApproved(true)
+
+            router.push('/account');
         }
     }
 
     useEffect(() => {
-        if (user === undefined) {
-            console.log('é undefined')
-        }
-
+        console.log('user',user)
         if(isApproved === true) {
             // navigate("/perfil")
         }
