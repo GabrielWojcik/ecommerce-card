@@ -1,5 +1,5 @@
 import { Code, ContainerDescribe, ContainerPrimeiraCompra, CupomContainer, Describe, TextDescribe, ContainerCards } from "./styles";
-import Cell from "../../assets/app.svg";
+// import Cell from "../../assets/app.svg";
 import CardItens from "../card-itens/index"
 export default function PrimeiraCompra() {
     return(
@@ -28,7 +28,7 @@ export default function PrimeiraCompra() {
                     utilize o cupom no carrinho.Receba sua compra em casa e com segurança.
                     </p>
                 </TextDescribe>
-            <img src={Cell} />
+            {/* <img src={Cell} /> */}
             </ContainerDescribe>
             <ContainerCards>
                 <CardItens />

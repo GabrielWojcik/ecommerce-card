@@ -30,6 +30,12 @@ export default function FormAddres() {
             <input></input>
             </InputContainer>
 
+            <div style={{display: 'flex', gap: '15px', justifyContent: 'space-between'}}>
+                <button id="edit">Editar</button>
+                <button id="save">Salvar</button>
+            </div>
+
+
         </ContainerFormAnddres>
         
     )

@@ -1,4 +1,4 @@
-import img1 from "../../assets/image-3.png"
+// import img1 from "../../assets/image-3.png"
 import { CardItensContainer, ContainerProduct, Star, Product, ProductDesc } from "./styles"
 import { MdFavoriteBorder } from 'react-icons/md'
 import { NavLink, useParams } from 'react-router-dom';
@@ -14,7 +14,7 @@ export default function CardItens(){
                     <MdFavoriteBorder size={18} />
                 </Star>
                 <Product>
-                    <img src={img1} alt="" />
+                    {/* <img src={img1} alt="" /> */}
                 </Product>
               
             </ContainerProduct>

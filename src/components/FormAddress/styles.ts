@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const ContainerFormAnddres = styled.div`
+export const ContainerFormAnddres = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,6 +13,36 @@ export const ContainerFormAnddres = styled.div`
         margin-bottom: 30px;
         font-family: 'Lobster', sans-serif;
     }
+
+    #edit {
+        width: 50%;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        border-color: #FF005C;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #FF005C;
+            color: #fff;
+        }
+
+    }
+        #save {
+            width: 50%;
+            height: 40px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            border-color: #FF005C;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+            background-color: #FF005C;
+            color: #fff;
+            }
+         }
 `
 
 export const InputContainer = styled.div`
