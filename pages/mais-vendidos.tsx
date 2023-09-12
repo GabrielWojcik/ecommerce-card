@@ -1,4 +1,4 @@
-export function MaisVendidos() {
+export default function MaisVendidos() {
     return(
         <div>
             <p>mais vendidos</p>
