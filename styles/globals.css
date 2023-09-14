@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lobster', sans-serif;
 }
 
 @media screen and (max-width: 999px) {

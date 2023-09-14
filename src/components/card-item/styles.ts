@@ -31,7 +31,6 @@ export const ContainerDescription = styled.div`
     bottom: 0;
 
     p {
-        height: 5px;
         color: #FF005C;
         font-weight: bold;
         font-family: arial!important;

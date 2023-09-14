@@ -17,14 +17,21 @@ export const Card = styled.div`
     border-color: #FF005C;
 
     
-    h2, p {
+    /* h2, p {
+        height: 17px;
         line-height: 0.25rem;
         padding: 0 1.25rem;
-    }
+
+    } */
 
     p {
         color: #878787;
         font-size: 12px;
+    }
+
+    #text {
+        height: 20px;
+        margin-top: 15px;
     }
 
     form {

@@ -61,7 +61,7 @@ export default function Login(){
                         <h2>
                         Olá!
                         </h2>
-                    <p>
+                    <p id="text">
                         Para continuar, digite seu e-mail.
                     </p>
                     <form action="">
