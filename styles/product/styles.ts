@@ -24,10 +24,20 @@ export const ContainerImage = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
+
+    @media screen and (max-width: 999px) {
+        width: 100%
+    }
 `
 
 export const ContainerMain = styled.div`
     display: flex;
+
+    @media screen and (max-width: 999px) {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 `
 
 export const ContainerDescription = styled.div`
@@ -79,6 +89,10 @@ export const ContainerDescription = styled.div`
 
     &:hover button {
         background-color: #FF006C;
+    }
+
+    @media screen and (max-width: 999px) {
+        width: 100%
     }
 
 `
