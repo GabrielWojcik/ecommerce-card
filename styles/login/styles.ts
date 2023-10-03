@@ -18,7 +18,7 @@ export const Card = styled.div`
 
     
     h2, p {
-        line-height: 0.25rem;
+        /* line-height: 0.25rem; */
         padding: 0 1.25rem;
     }
 

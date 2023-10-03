@@ -95,8 +95,10 @@ export default function MenuMain() {
                 <p>Descontos</p>
            </div>
            <div className="container-text-icon">
-               <BiUserCircle size={25} color="#FF005C" />
-               <p>Perfil</p>
+              <Link href="/account">
+                    <BiUserCircle size={25} color="#FF005C" />
+                    <p>Perfil</p>
+              </Link>
            </div>
            <div className="container-text-icon">
                 <Link href="/login">
