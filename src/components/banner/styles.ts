@@ -21,8 +21,6 @@ export const ContainerBanner = styled.div`
 `
 
 export const ContainerTitle = styled.div`
-    /* position: absolute; */
-    /* top: 0; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,6 +29,12 @@ export const ContainerTitle = styled.div`
         color: #FF005C;
         font-weight: bold;
         font-size: 48px;
+    }
+
+    @media screen and (max-width: 999px) {
+        h1 {
+            font-size: 24px;
+        }
     }
 
 

@@ -14,8 +14,8 @@
   .container-navbar-mobile {
       display: flex;
       justify-content:  space-between;
-
-      margin: 10px 15px;
+      padding: 10px;
+      border-bottom: 1px solid #FF005C;
   }
 
   .logo {
@@ -24,6 +24,17 @@
       margin: 0;
       font-family: 'Lobster', sans-serif;
   }
+
+  .container-text-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #FF005C;
+  }
+  
+  
   .menu {
       display: flex;
       width: 35px;

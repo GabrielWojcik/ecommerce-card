@@ -4,7 +4,7 @@ import { CiDiscount1 } from 'react-icons/ci';
 import MenuMobile from "../menu/menu"
 import Link from "next/link";
 import { AuthContext } from '@/src/context/AuthContext';
-
+import { BiUserCircle, BiPurchaseTagAlt, BiLogIn } from "react-icons/bi";
 
 export default function MenuMain() {
     const [isActiveMenu, setIsActiveMenu] = useState(false);
@@ -89,20 +89,22 @@ export default function MenuMain() {
         </div>
 
         <div className="container-navbar-mobile">
-          <div className="menu">
-                {/* <img 
-                src={Menu} 
-                alt="" 
-                className="icon-header"
-                onClick={() => setIsActiveMenu(true)}
-                /> */}
-          </div>
-         
-          
            <p className="logo">Beauty</p>
+           <div className="container-text-icon">
+                <BiPurchaseTagAlt size={25} color="#FF005C" />
+                <p>Descontos</p>
+           </div>
+           <div className="container-text-icon">
+               <BiUserCircle size={25} color="#FF005C" />
+               <p>Perfil</p>
+           </div>
+           <div className="container-text-icon">
+                <Link href="/login">
+                    <BiLogIn size={25} color="#FF005C" />
+                    <p>Entrar / Sair</p>
+                </Link>
+           </div>
           <div>
-                {/* <img src={Favorite} alt="" className="icon-header" />
-                <img src={User} alt="" className="icon-header" /> */}
           </div>          
 
         </div>

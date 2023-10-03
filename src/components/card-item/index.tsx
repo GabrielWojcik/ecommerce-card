@@ -4,6 +4,7 @@ import { PRODUCTS } from "@/src/data/products";
 import { ContainerCard, ContainerDescription, ContainerButton } from "./styles";
 
 export function CardItem() {
+
     return(
         <>
         {
