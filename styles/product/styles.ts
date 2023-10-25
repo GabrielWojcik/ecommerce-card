@@ -92,7 +92,11 @@ export const ContainerDescription = styled.div`
     }
 
     @media screen and (max-width: 999px) {
-        width: 100%
+        width: 100%;
+
+        #title-name{
+            text-align: center;
+        }
     }
 
 `

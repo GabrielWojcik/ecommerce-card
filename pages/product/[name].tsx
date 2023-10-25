@@ -31,7 +31,7 @@ export default function Product() {
                         </ContainerImage>
                         
                         <ContainerDescription>
-                            <h1>{item.name}</h1>
+                            <h1 id="title-name">{item.name}</h1>
                             <p>{item.brand}</p>
                             <p id="price">R$ {item.price}</p>
                             <p id="points">Ganhe 190 pontos no <span>Clube Beauty</span>  com esse produto!</p>

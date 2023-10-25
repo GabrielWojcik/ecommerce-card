@@ -52,6 +52,10 @@ export const AcconuntLogged = styled.div`
             color: #FF005C;
         }
     }
+
+    @media screen and (max-width: 999px) {
+        display: none;
+    }
 `
 
 export const AccountInfomation = styled.div`

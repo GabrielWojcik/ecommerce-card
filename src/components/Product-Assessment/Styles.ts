@@ -21,6 +21,10 @@ export const ContainerAssessment = styled.div`
             color: #fff;
         }
 
+    @media screen and (max-width: 999px) {
+        flex-direction: column;
+    }
+
 `
 
 export const ContainerStar = styled.div`
