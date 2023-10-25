@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+// import ReactStars from "react-rating-stars-component";
 import { AiFillStar } from 'react-icons/ai'
 import { Form, StarContainer, TitleModal, InputContainer } from './styles';
+import { Rating } from 'react-simple-star-rating'
 
 interface PropsModal {
     openModal: any;
@@ -23,6 +25,15 @@ const customStyles = {
 
 export default function FeedbackModal( props:PropsModal ) {
   const { openModal, closeModal } = props
+
+  const [rating, setRating] = useState(0)
+
+  // Catch Rating value
+  const handleRating = (rate: number) => {
+    setRating(rate)
+
+    // other logic
+  }
 
     return(
     <div>
@@ -57,7 +68,9 @@ export default function FeedbackModal( props:PropsModal ) {
               
               <InputContainer>
                 <label htmlFor="">Com quantas entrelas você gostaria de avaliar este produto?</label>
-                <input />
+                <Rating
+                  onClick={handleRating}
+                 />
               </InputContainer>
 
               <InputContainer>
