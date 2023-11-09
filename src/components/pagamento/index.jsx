@@ -1,5 +1,5 @@
 import "./styles.css";
-import Button from "../button/index";
+import Button from "../button/buttontsx";
 
 export default function  Pagameto( {cardNumber} ) {
     return(

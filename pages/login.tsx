@@ -37,6 +37,8 @@ export default function Login(){
             setProfilePic(decoded.picture)
             setIsApproved(true)
 
+            localStorage.setItem('userDataLogged', JSON.stringify(decoded.name));
+
             router.push('/account');
         }
     }

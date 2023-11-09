@@ -12,9 +12,11 @@ export default function MenuMain() {
     const [userLogged, setUserLogged] = useState();
     const { user } = useContext(AuthContext);
 
+
     useEffect(() => {
         function loggedUser() {
             if(user) {
+
                 setUserLogged(user)
             }
             else {
@@ -23,6 +25,11 @@ export default function MenuMain() {
         }
         loggedUser()
         console.log('userLogged', userLogged)
+        const dataLocalStorage = JSON.parse(localStorage.getItem('userDataLogged'));
+
+        console.log('dataLocalStorage', dataLocalStorage);
+        console.log('user', user)
+
     },[user, userLogged])
 
     return(
@@ -67,9 +74,16 @@ export default function MenuMain() {
                     <Link href="/account">
                         <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}> 
                         <AiOutlineUser size={25} />
+                        {
+                            user === 'undefined' ?
+                            <p>
+                                {dataLocalStorage}
+                            </p>
+                            :
                             <p>
                                 {user}
                             </p>
+                        }
                         </div>
                     </Link> 
                     : 
