@@ -9,12 +9,29 @@ ContainerInput, Value, Body, ValueContainer, PixBox, BoxPayment, ContainerButton
 StyledButton } from "../styles/cart/styles"
 import InputComponent from "@/src/components/input/input";
 import ButtonComponent from "@/src/components/button-component/buttom";
+import CepService from "../src/services/cep/apiServices";
+import { BiMap } from "react-icons/bi";
+import { BsHouseDoor, BsMailbox } from "react-icons/bs";
+
 
 export default function Carrinho() {
     
     const { item } = useContext(ShopContext);
 
     const [addItem, setAddItem] = useState<number>(0);
+    const [cep, setCep] = useState<string>('');
+    const [dataCep, setDataCep] = useState({
+        bairro: '',
+        cep: '',
+        complemento: '',
+        ddd: '',
+        gia: '',
+        ibge: '',
+        localidade: '',
+        logradouro: '',
+        siafi: '',
+        uf: ''
+      });
     
     useEffect(() => {
         console.log('item carrinho', item)
@@ -32,6 +49,27 @@ export default function Carrinho() {
         setAddItem(addItem - 1);
     }
 
+    async function sendCep() {
+        const data = await CepService.sendCep(cep);
+        saveValues(data.bairro, data.cep, data.complemento, data.ddd, 
+            data.localidade, data.logradouro, data.uf)
+
+    }
+
+    function saveValues(bairro: string, cep: string, complemento: string, ddd: string,
+         localidade: string, logradouro: string, uf:string) {
+        setDataCep((prevEndereco) => ({
+            ...prevEndereco,
+            bairro: bairro,
+            cep: cep,
+            complemento: complemento,
+            ddd: ddd,
+            localidade: localidade,
+            logradouro: logradouro,
+            uf: uf
+          }));
+    }
+
     return(
         <>
             <SectionTitle>
@@ -41,13 +79,31 @@ export default function Carrinho() {
                 
                 <div className="container-cep">
                     <InputComponent 
+                        value={cep}
+                        onChange={(e:any) => setCep(e.target.value)}
                         placeholder="Digite o CEP"
                     />
+
                     <ButtonComponent 
                     active
+                    onClick={() => sendCep()}
                     > 
                         OK 
                     </ButtonComponent>
+                </div>
+
+                <div className="container-address">
+                    <p className="address">
+                        <BsHouseDoor color="#FF005C" />   Endereço: {dataCep.logradouro}
+                    </p>
+                    
+                    <p className="address">
+                        <BiMap color="#FF005C" /> Cidade: {dataCep.localidade}
+                    </p>
+                    
+                    <p className="address">
+                        <BsMailbox color="#FF005C" />   UF: {dataCep.uf}
+                    </p>
                 </div>
 
             </SectionTitle>

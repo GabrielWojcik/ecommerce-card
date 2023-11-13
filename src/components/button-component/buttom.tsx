@@ -7,11 +7,13 @@ interface ButtonProps {
     disabled?: string;
     type?: string;
     text?: string;
+    onClick?: () => void
 }
 
 export default function ButtonComponent( props: ButtonProps ) {
     return(
-        <Button 
+        <Button
+        onClick={props.onClick}
         active={props.active}
         >
             {props.children}

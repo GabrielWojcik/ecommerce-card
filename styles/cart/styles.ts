@@ -30,6 +30,26 @@ export const SectionTitle = styled.div`
         width: 100%;
         padding-top: 1rem;
     }
+
+    .container-address {
+            margin-top: 1rem;
+        }
+
+    @media screen and (max-width: 999px) {
+        .container-address {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+    
+        .address {
+            font-size: 14px;
+        }
+        
+    }
+
 `
 
 export const Body = styled.div`
