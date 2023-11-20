@@ -32,6 +32,7 @@ export default function Carrinho() {
         siafi: '',
         uf: ''
       });
+      const [priceDelivery, setPriceDelivery] = useState<boolean>(false);
     
     useEffect(() => {
         console.log('item carrinho', item)
@@ -53,6 +54,7 @@ export default function Carrinho() {
         const data = await CepService.sendCep(cep);
         saveValues(data.bairro, data.cep, data.complemento, data.ddd, 
             data.localidade, data.logradouro, data.uf)
+        setPriceDelivery(true)
 
     }
 
@@ -68,6 +70,16 @@ export default function Carrinho() {
             logradouro: logradouro,
             uf: uf
           }));
+    }
+
+    function randomValue() {
+        const numeroAleatorio = Math.random() * 0.9 + 10;
+        const numeroString = numeroAleatorio.toFixed(4); 
+        const numeroEmReal = parseFloat(numeroString).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+        });
+        return numeroEmReal
     }
 
     return(
@@ -156,7 +168,12 @@ export default function Carrinho() {
                     <hr></hr>
                     <div className="container-box">
                         <p className="text-box">Frete: </p>
-                        <span>R$ 625,00</span>
+                        {
+                            priceDelivery ?
+                            <span>{randomValue()}</span>
+                            :
+                            null
+                        }
                     </div>
                     <div className="container-box">
                         <p className="text-box">Total à prazo: </p>

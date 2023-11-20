@@ -8,11 +8,10 @@ import { ContainerItem, CardImage, ContainerImage, ContainerDescription, Contain
 import { ShopContext } from "@/src/context/ShopContext"
 import { useContext } from "react"
 import Link from "next/link"
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Product() {
     const {item, setItem} = useContext(ShopContext);
-
-
 
     const[data, setData] = useState<any>()
     const router = useRouter()
@@ -48,12 +47,13 @@ export default function Product() {
                             <button>Compre</button>
 
                             <Link href="carrinho">
+                                <div style={{display: 'flex', justifyContent: 'center',
+                                 alignItems: 'center', gap: 15}}>
+                                    <AiOutlineShoppingCart size={25} /> 
                                     <p onClick={() => setItem(router.query.name)}>
                                         Adicionar ao Carrinho
                                     </p>
-                                {/* <button onClick={() => setItem(router.query.name)}>
-                                    Adicionar ao Carrinho
-                                </button> */}
+                                </div>
                             </Link>
                         </ContainerDescription>
                     </ContainerMain>

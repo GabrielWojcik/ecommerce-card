@@ -6,6 +6,8 @@ import { AuthContext } from '@/src/context/AuthContext';
 import { BiUserCircle, BiPurchaseTagAlt, BiLogIn } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiddenMenu, HiddenCLose, Sections } from "../../../styles/navbar/styles";
+import { IoPricetagOutline } from "react-icons/io5";
+
  
 export default function MenuMain() {
     const [isActiveMenu, setIsActiveMenu] = useState(false);
@@ -44,9 +46,10 @@ export default function MenuMain() {
                     </p>
                </Link>
                <Link href="/primeira-compra">
-               <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+               <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
+                    <IoPricetagOutline size={25} />
                     <p id="sacola" className="sac">
-                        1 Compra
+                         Compra
                     </p>
                 </div>
                 </Link>
