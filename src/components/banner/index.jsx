@@ -7,7 +7,7 @@ export default function Banner() {
         <ContainerBanner>
             <Image src={BannerBlack} alt="" />
             <SectionTitle>
-                <h1>Black Friday Beauty <br></br>
+                <h1>Cupom de Desconto Beauty <br></br>
                     até <span>50% OFF</span>
                 </h1>
             </SectionTitle>

@@ -7,6 +7,9 @@ export default function Home() {
     return(
         <HomeContainer>
             <Banner />
+                <div style={{margin: 'auto'}}>
+                    <h1>Nossos Produtos</h1>
+                </div>
             <MainContainer>
                 <CardItem />
             </MainContainer>

@@ -1,9 +1,19 @@
 import { styled } from "styled-components";
 
+
+export const ContainerMain = styled.div`
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: row; */
+
+`
+
 export const ContainerCard = styled.div`
     width: 200px;
-    height: 200px;
+    height: 220px;
     position: relative;
+    margin: 1rem;
     cursor: pointer;
 
     img {
@@ -16,7 +26,6 @@ export const ContainerCard = styled.div`
     img:hover { 
         transform: scale(1.1); 
         opacity: unset;
-    
     }
 
 `

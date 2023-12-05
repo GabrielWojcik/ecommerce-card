@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS } from "@/src/data/products";
-import { ContainerCard, ContainerDescription, ContainerButton } from "./styles";
+import { ContainerMain, ContainerCard, ContainerDescription, ContainerButton } from "./styles";
 
 export function CardItem() {
 
@@ -10,6 +10,7 @@ export function CardItem() {
         {
           PRODUCTS.map(item => {
                return(
+                    <>
                     <Link key={item.name} href={`/product/${item.name}`}>
                     <ContainerCard>
                          <Image src={item.image} alt=""/>
@@ -23,9 +24,10 @@ export function CardItem() {
                               </ContainerButton>
                     </ContainerCard>
                     </Link>
+                    </>
                )
           })
-       }
+        }
   </>
     )
 }
