@@ -3,26 +3,31 @@ import styled from "styled-components"
 
 export const CardItensContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    /* width: 90%; */
     border: 1px solid #ebebeb;;
     margin: 5px;
 
-    @media screen and (min-width: 1000px) {
-        width: 50%;
+    @media screen and (max-width: 1000px) {
+        width: 90%;
     }
 
 `
+export const ContainerFavorito = styled.div`
+    width: 100%;
+`
+
 export const ContainerProduct = styled.div`
     display: flex;
-    width: 100%;
     padding: 10px;
 `
 
 export const Star = styled.div`
     padding: 5px 10px;
+    width: 50px;
 
 `
 
@@ -38,6 +43,7 @@ export const Product = styled.div`
 
 `
 export const ProductDesc = styled.div`
+    text-align: center;
     padding: 10px;
 
     #title {
@@ -66,4 +72,21 @@ export const ProductDesc = styled.div`
         box-shadow: 0 2px 2px 0 rgba(0,0,0,.2), inset 0 -2px 0 0 rgba(0,0,0,.2);
     }
 
+`
+
+export const ContainerBtn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+
+    button {
+        background-color: #FF005C;
+        color: #FFF;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
 `

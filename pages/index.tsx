@@ -1,15 +1,18 @@
 import Banner from "../src/components/banner";
 import MenuSlider from "../src/components/slider-itens";
-import { HomeContainer, MainContainer } from "../styles/home/styles";
+import { HomeContainer, MainContainer, Title} from "../styles/home/styles";
 import { CardItem } from "@/src/components/card-item";
 
 export default function Home() {
     return(
         <HomeContainer>
             <Banner />
-                <div style={{margin: 'auto'}}>
+                <Title>
                     <h1>Nossos Produtos</h1>
-                </div>
+                </Title>
+                {/* <div style={{margin: 'auto', backgroundColor:'#dbead5', width: '100%'}}>
+                    <h1>Nossos Produtos</h1>
+                </div> */}
             <MainContainer>
                 <CardItem />
             </MainContainer>

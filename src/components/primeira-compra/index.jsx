@@ -1,6 +1,8 @@
-import { Code, ContainerDescribe, ContainerPrimeiraCompra, CupomContainer, Describe, TextDescribe, ContainerCards } from "./styles";
+import { Code, ContainerDescribe, ContainerPrimeiraCompra,
+CupomContainer, Describe, TextDescribe, ContainerCards } from "./styles";
 // import Cell from "../../assets/app.svg";
 import CardItens from "../card-itens/index"
+
 export default function PrimeiraCompra() {
     return(
         <ContainerPrimeiraCompra>
@@ -31,7 +33,6 @@ export default function PrimeiraCompra() {
             {/* <img src={Cell} /> */}
             </ContainerDescribe>
             <ContainerCards>
-                <CardItens />
                 <CardItens />
             </ContainerCards>
         </ContainerPrimeiraCompra>

@@ -18,7 +18,6 @@ export default function MenuMain() {
     useEffect(() => {
         function loggedUser() {
             if(user) {
-
                 setUserLogged(user)
             }
             else {
@@ -105,7 +104,7 @@ export default function MenuMain() {
         <div className="container-navbar-mobile">
            <p className="logo">Beauty</p>
            <div className="container-text-icon">
-                <BiPurchaseTagAlt size={25} color="#FF005C" />
+                <BiPurchaseTagAlt size={25} color="#FFF" />
                 <p>Descontos</p>
            </div>
            {
@@ -113,14 +112,14 @@ export default function MenuMain() {
             <>
                 <div className="container-text-icon">
                     <Link href="/account">
-                            <BiUserCircle size={25} color="#FF005C" />
+                            <BiUserCircle size={25} color="#FFF" />
                             <p>Perfil</p>
                     </Link>
                 </div>
                 <div className="container-text-icon">
                         <RxHamburgerMenu 
                         size={25} 
-                        color="#FF005C" 
+                        color="#FFF" 
                         onClick={() => setIsActiveMenu(true)} 
                         />
                 </div>
@@ -130,8 +129,12 @@ export default function MenuMain() {
             (
                 <div className="container-text-icon">
                         <Link href="/login">
-                            <BiLogIn size={25} color="#FF005C" />
-                            <p>Entrar / Sair</p>
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                <BiLogIn size={25} color="#FFF" />
+                            </div>
+                            <div>
+                                <p>Entrar / Cadastro</p>
+                            </div>
                         </Link>
                 </div>
             )

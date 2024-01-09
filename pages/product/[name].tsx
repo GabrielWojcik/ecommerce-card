@@ -22,7 +22,6 @@ export default function Product() {
     useEffect(() => {
         const filterProduct = PRODUCTS.filter(name => name.name === productRouter)
         setData(filterProduct)
-        // console.log('item', item);
     },[data, productRouter])
 
     return(

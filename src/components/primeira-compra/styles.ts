@@ -117,8 +117,13 @@ export const TextDescribe = styled.div`
 
 export const ContainerCards = styled.div`
     display: flex;
+    width: 100%;
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         a {
         display: flex;
         align-items: center;

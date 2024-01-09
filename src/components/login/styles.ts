@@ -9,20 +9,11 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 2rem;
     width: 300px;
     margin: 2.5rem;
     border: 1px solid transparent;
     border-radius: 6px;
     border-color: #FF005C;
-
-    
-    /* h2, p {
-        height: 17px;
-        line-height: 0.25rem;
-        padding: 0 1.25rem;
-
-    } */
 
     p {
         color: #878787;
