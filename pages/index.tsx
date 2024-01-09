@@ -1,3 +1,4 @@
+import CardItens from "@/src/components/card-itens";
 import Banner from "../src/components/banner";
 import MenuSlider from "../src/components/slider-itens";
 import { HomeContainer, MainContainer, Title} from "../styles/home/styles";
@@ -14,7 +15,8 @@ export default function Home() {
                     <h1>Nossos Produtos</h1>
                 </div> */}
             <MainContainer>
-                <CardItem />
+                <CardItens />
+                {/* <CardItem /> */}
             </MainContainer>
         </HomeContainer>
     )
