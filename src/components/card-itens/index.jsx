@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { CardItensContainer, ContainerProduct, Star,
 Product, ProductDesc, ContainerFavorito, ContainerBtn} from "./styles"
 import { MdFavoriteBorder, MdOutlineFavorite} from 'react-icons/md'
@@ -71,12 +72,14 @@ export default function CardItens(){
                     <p className="descricao">O Refil Creme Acetinado Desodorante Hidratante Corporal Lily 
                     entrega perfumação prolongada e fragrância intensa para sua pele na medida certa.</p>
                     <ContainerBtn>
+                    <Link key={value.id} href={`/product/${value.name}`}>
                         <button>
                             COMPRE AGORA
                         </button>
+                    </Link>
                     </ContainerBtn>
                 </ProductDesc>
-        </CardItensContainer>
+            </CardItensContainer>
                 )
 
             })
