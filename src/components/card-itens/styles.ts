@@ -47,7 +47,7 @@ export const ProductDesc = styled.div`
     padding: 10px;
 
     #title {
-        font-size: 11px;
+        font-size: 18px;
     }
     .descricao {
         font-size: 13px;
@@ -88,5 +88,13 @@ export const ContainerBtn = styled.div`
         padding: 1rem;
         cursor: pointer;
         font-weight: bold;
+    }
+    :hover button {
+    background: #ff1493;
+}
+    #text-add-item {
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: underline;
     }
 `

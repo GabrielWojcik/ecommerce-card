@@ -9,7 +9,8 @@ export default function ShopContextprovider(props) {
         setItem([...item, itemSelected])
     }
 
-    function removeItem() {
+    function removeItem(itemRemove) {
+        const findItems = item.filter(value => !itemRemove.includes(value.id))
         setItem([])
     }
 

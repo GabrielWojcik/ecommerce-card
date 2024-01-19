@@ -21,7 +21,7 @@ export default function Carrinho() {
     const product = PRODUCTS;
 
     useEffect(() => {
-        const findItems = product.filter(value => value. id === item[0])
+        const findItems = product.filter(value => item.includes(value.id))
         setItemInCart(findItems)
     },[item, product])
 
@@ -95,12 +95,12 @@ export default function Carrinho() {
                         placeholder="Digite o CEP"
                     />
 
-                    <ButtonComponent 
+                    {/* <ButtonComponent 
                     active
                     onClick={() => sendCep()}
                     > 
                         OK 
-                    </ButtonComponent>
+                    </ButtonComponent> */}
                 </div>
 
                 <div className="container-address">
@@ -136,7 +136,6 @@ export default function Carrinho() {
                                     <p>{value.name}</p>
                                     <p>R$ {value.price}</p>
                                     <p>{value.brand}</p>
-
                                 </ProductDetails>
                                 
                                 <ProductAmount>
@@ -157,7 +156,7 @@ export default function Carrinho() {
                                             cursor="pointer"
                                             onClick={handleDecrement}
                                         />
-                                        <button onClick={() => removeItem()}>Remover</button>
+                                        <button onClick={() => removeItem(value.id)}>Remover</button>
                                     </ContainerInput>
 
                                 </ProductAmount>

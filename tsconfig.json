@@ -34,7 +34,7 @@
     "src/context/AuthContext.ts",
     "src/components/button/index.jsx",
     "src/tests/home/home.test.js"
-, "src/context/CartContext/index.tsx"  ],
+, "src/context/CartContext/index.tsx", "src/context/ShopContext.js"  ],
   "exclude": [
     "node_modules"
   ]

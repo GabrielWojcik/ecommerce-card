@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
-import { Button } from "./styles";
+// import { ReactNode } from "react";
+// import { Button } from "./styles";
 
 interface ButtonProps {
-    children: ReactNode;
+    // children: ReactNode;
     active?: boolean;
     disabled?: string;
     type?: string;
@@ -12,11 +12,12 @@ interface ButtonProps {
 
 export default function ButtonComponent( props: ButtonProps ) {
     return(
-        <Button
-        onClick={props.onClick}
-        active={props.active}
-        >
-            {props.children}
-        </Button>
+        <button>ok</button>
+        // <Button
+        // onClick={props.onClick}
+        // active={props.active}
+        // >
+        //     {props.children}
+        // </Button>
     )
 }

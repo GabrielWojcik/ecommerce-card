@@ -7,13 +7,14 @@ import { BiUserCircle, BiPurchaseTagAlt, BiLogIn } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiddenMenu, HiddenCLose, Sections } from "../../../styles/navbar/styles";
 import { IoPricetagOutline } from "react-icons/io5";
+import { ShopContext } from "@/src/context/ShopContext";
 
  
 export default function MenuMain() {
     const [isActiveMenu, setIsActiveMenu] = useState(false);
     const [userLogged, setUserLogged] = useState();
     const { user } = useContext(AuthContext);
-
+    const { item } = useContext(ShopContext)
 
     useEffect(() => {
         function loggedUser() {
@@ -66,6 +67,9 @@ export default function MenuMain() {
                 <Link href="/carrinho">
                 <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
                     <AiOutlineShoppingCart size={25} />
+                    <strong>
+                        {item.length}
+                    </strong>
                     <p>
                         Carrinho
                     </p>

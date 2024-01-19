@@ -11,7 +11,7 @@ import Link from "next/link"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Product() {
-    const {item, selectedItem} = useContext(ShopContext);
+    const { selectedItem } = useContext(ShopContext);
     
     const[data, setData] = useState<any>()
     const router = useRouter()
@@ -25,7 +25,7 @@ export default function Product() {
     return(
         <>
         {data?.map((item: { name: any, image: any, 
-        brand: string, price: number, description: string
+        brand: string, price: number, description: string, id: any
          }) => {
             return (
                 <ContainerItem key={item.name}>
@@ -47,7 +47,7 @@ export default function Product() {
                                 <div style={{display: 'flex', justifyContent: 'center',
                                  alignItems: 'center', gap: 15}}>
                                     <AiOutlineShoppingCart size={25} /> 
-                                    <p>
+                                    <p onClick={() => selectedItem(item.id) }>
                                         Adicionar ao Carrinho
                                     </p>
                                 </div>
