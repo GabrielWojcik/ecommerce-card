@@ -5,10 +5,14 @@ Product, ProductDesc, ContainerFavorito, ContainerBtn} from "./styles"
 import { MdFavoriteBorder, MdOutlineFavorite} from 'react-icons/md'
 import { PRODUCTS } from "../../data/products"
 import { useState } from "react"
-
+import { useContext } from "react"
+import { ShopContext } from "@/src/context/ShopContext"
 export default function CardItens(){
+    
     const [likeProduct, setLikeProduct] = useState(false);
     const [productLikeClick, setProductLikeClick] = useState('');
+
+    const { selectedItem } = useContext(ShopContext)
 
     function handleClick(idItem) {
         if (likeProduct && idItem === productLikeClick) {
@@ -73,8 +77,15 @@ export default function CardItens(){
                     entrega perfumação prolongada e fragrância intensa para sua pele na medida certa.</p>
                     <ContainerBtn>
                     <Link key={value.id} href={`/product/${value.name}`}>
-                        <button>
+                        <button onClick={() => selectedItem(value.id)}>
                             COMPRE AGORA
+                        </button>
+                    </Link>
+                    </ContainerBtn>
+                    <ContainerBtn>
+                    <Link key={value.id} href={`/carrinho`}>
+                        <button onClick={() => selectedItem(value.id)}>
+                            CARRINHO
                         </button>
                     </Link>
                     </ContainerBtn>

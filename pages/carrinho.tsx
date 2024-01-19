@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Img from "../images/perfume-1.jpg";
 import { BiPlusCircle } from 'react-icons/bi';
-import { useContext, useEffect, useState } from "react"
+import { Key, useContext, useEffect, useState } from "react"
 import { ShopContext } from "@/src/context/ShopContext"
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
 import { Container, SectionTitle, Box, ProductDetails, ProductAmount, 
@@ -12,11 +11,19 @@ import ButtonComponent from "@/src/components/button-component/buttom";
 import CepService from "../src/services/cep/apiServices";
 import { BiMap } from "react-icons/bi";
 import { BsHouseDoor, BsMailbox } from "react-icons/bs";
-
+import { PRODUCTS } from "@/src/data/products";
 
 export default function Carrinho() {
-    
-    const { item } = useContext(ShopContext);
+    const [itemInCart, setItemInCart] = useState<any>();
+
+    const { item, removeItem } = useContext(ShopContext);
+
+    const product = PRODUCTS;
+
+    useEffect(() => {
+        const findItems = product.filter(value => value. id === item[0])
+        setItemInCart(findItems)
+    },[item, product])
 
     const [addItem, setAddItem] = useState<number>(0);
     const [cep, setCep] = useState<string>('');
@@ -32,16 +39,8 @@ export default function Carrinho() {
         siafi: '',
         uf: ''
       });
-      const [priceDelivery, setPriceDelivery] = useState<boolean>(false);
+    const [priceDelivery, setPriceDelivery] = useState<boolean>(false);
     
-    useEffect(() => {
-        console.log('item carrinho', item)
-
-        if(item) {
-            console.log('item', item)
-        }
-    },[item])
-
     const handleIncrement = () => {
         setAddItem(addItem + 1);
     }
@@ -122,39 +121,50 @@ export default function Carrinho() {
 
             <Body>
             <Container>
-                <Box>
-                    <Image id="img-item"  alt="" src={Img} width={100} height={90} />
-                    
-                    <ProductDetails>
-                        <p>Perfume Eau de Parfum</p>
-                        <p>R$ 190,00</p>
-                        <p>Amadeirado</p>
+                {
+                    itemInCart?.map((value: {
+                        value: string;
+                        name: string;
+                        image: any; id: Key | null | undefined; 
+                        price: number,
+                        brand: string,
+                    }) => {
+                        return(
+                            <Box key={value.id}>
+                                <Image id="img-item"  alt="" src={value.image} width={100} height={90} />
+                                <ProductDetails>
+                                    <p>{value.name}</p>
+                                    <p>R$ {value.price}</p>
+                                    <p>{value.brand}</p>
 
-                    </ProductDetails>
-                    
-                    <ProductAmount>
-                        
-                        <p>Quantidade</p>
+                                </ProductDetails>
+                                
+                                <ProductAmount>
+                                    
+                                    <p>Quantidade</p>
 
-                        <ContainerInput>
-                            <input type="number" value={addItem} />
-                            <BiPlusCircle 
-                                size={25} 
-                                color="green"
-                                cursor="pointer"
-                                onClick={handleIncrement}
-                            />
-                            <IoIosRemoveCircleOutline 
-                                size={25} 
-                                color="red" 
-                                cursor="pointer"
-                                onClick={handleDecrement}
-                            />
-                        </ContainerInput>
+                                    <ContainerInput>
+                                        <input type="number" value={addItem} />
+                                        <BiPlusCircle 
+                                            size={25} 
+                                            color="green"
+                                            cursor="pointer"
+                                            onClick={handleIncrement}
+                                        />
+                                        <IoIosRemoveCircleOutline 
+                                            size={25} 
+                                            color="red" 
+                                            cursor="pointer"
+                                            onClick={handleDecrement}
+                                        />
+                                        <button onClick={() => removeItem()}>Remover</button>
+                                    </ContainerInput>
 
-                    </ProductAmount>
-
-                </Box>
+                                </ProductAmount>
+                            </Box>
+                        )
+                    })
+                }
 
             </Container>
 
