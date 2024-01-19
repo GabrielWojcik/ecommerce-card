@@ -8,6 +8,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { HiddenMenu, HiddenCLose, Sections } from "../../../styles/navbar/styles";
 import { IoPricetagOutline } from "react-icons/io5";
 import { ShopContext } from "@/src/context/ShopContext";
+import { MdOutlineShoppingBag, MdFavoriteBorder } from "react-icons/md";
+import { IoMenuOutline } from "react-icons/io5";
 
  
 export default function MenuMain() {
@@ -106,11 +108,29 @@ export default function MenuMain() {
         </div>
 
         <div className="container-navbar-mobile">
-           <p className="logo">Beauty</p>
-           <div className="container-text-icon">
-                <BiPurchaseTagAlt size={25} color="#FFF" />
-                <p>Descontos</p>
+           <div style={{display: "flex", alignContent: "center", justifyContent: "space-between", width: '100%'}}>
+                <div  onClick={() => setIsActiveMenu(true)}>
+                    <IoMenuOutline size={30} color="#FFF" />
+
+                </div>
+                <div>
+                    <Link href={"/"}>
+                        <p className="logo">Beauty</p>
+                    </Link>
+                </div>
+                <div style={{display: 'flex'}}>
+                    <Link href={"/carrinho"}>
+                        <div>
+                            <MdOutlineShoppingBag size={30} color="#FFF" />
+                        </div>
+                    </Link>                    
+                    <div>
+
+                        <MdFavoriteBorder size={30} color="#FFF" />
+                    </div>
+                </div>
            </div>
+           
            {
             userLogged ? (
             <>
@@ -131,16 +151,17 @@ export default function MenuMain() {
             )
             :
             (
-                <div className="container-text-icon">
-                        <Link href="/login">
-                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                <BiLogIn size={25} color="#FFF" />
-                            </div>
-                            <div>
-                                <p>Entrar / Cadastro</p>
-                            </div>
-                        </Link>
-                </div>
+                <></>
+                // <div className="container-text-icon">
+                //         <Link href="/login">
+                //             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                //                 <BiLogIn size={25} color="#FFF" />
+                //             </div>
+                //             <div>
+                //                 <p>Entrar / Cadastro</p>
+                //             </div>
+                //         </Link>
+                // </div>
             )
            }
           <div>

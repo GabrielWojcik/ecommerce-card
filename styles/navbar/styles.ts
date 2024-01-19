@@ -6,6 +6,7 @@ export const HiddenMenu = styled.div`
     width: 100%;
     height: 100vh;
     background-color: #FF005C;
+    z-index: 1000;
 
 `
 
@@ -19,6 +20,9 @@ export const HiddenCLose = styled.div`
 `
 
 export const Sections = styled.div`
-    color: 'white';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: '#FFF';
 
 `
