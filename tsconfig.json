@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "baseUrl": "./",
+    "paths": {
+      "@/components/*": ["components/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",

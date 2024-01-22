@@ -1,11 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import CardItens  from "../../components/card-itens/index";
+import Home from "@/pages";
 
-describe('Verify render <CardItens /> in home', () => {
+describe('Verify render <Home /> in home', () => {
     it('should render "COMPRE AGORA" button in CardItens component', () => {
-        render(<CardItens />);
-        
-        const buyButton = screen.getByTestId('price');
-        expect(buyButton).toBeInTheDocument();
+        render(<Home/>);
+        const texts = screen.getByText('Nossos Produtos')
+        expect(texts).toBeDefined()
     });
 });
