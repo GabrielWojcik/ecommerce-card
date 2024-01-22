@@ -6,9 +6,6 @@ export const PRODUCTS = [
         price: '199,00',
         image: require('../../images/perfume-1.jpg'),
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-        data_primeiro_feedback: '',
-        data_segundo_feedback: '25-09-2023',
-        
     },
     {
         id: '2',

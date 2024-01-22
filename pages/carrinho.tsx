@@ -5,7 +5,7 @@ import { ShopContext } from "@/src/context/ShopContext"
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
 import { Container, SectionTitle, Box, ProductDetails, ProductAmount, 
 ContainerInput, Value, Body, ValueContainer, PixBox, BoxPayment, ContainerButton, 
-StyledButton } from "../styles/cart/styles"
+StyledButton, ContainerBox, ContainerOptionItem, PriceItem, ContainerImage } from "../styles/cart/styles"
 import InputComponent from "@/src/components/input/input";
 import ButtonComponent from "@/src/components/button-component/buttom";
 import CepService from "../src/services/cep/apiServices";
@@ -14,18 +14,33 @@ import { BsHouseDoor, BsMailbox } from "react-icons/bs";
 import { PRODUCTS } from "@/src/data/products";
 
 export default function Carrinho() {
-    const [itemInCart, setItemInCart] = useState<any>();
+    const [itemInCart, setItemInCart] = useState<any>([]);
 
     const { item, removeItem } = useContext(ShopContext);
 
     const product = PRODUCTS;
 
+    function addPriceProducts ( valuePrice: any ) {
+        let sum = 0;
+        valuePrice.forEach((product: { price: string; }) => {
+            const priceProduct = parseFloat(product.price.replace(',', '.'))
+            if (!isNaN(priceProduct)) {
+                sum += priceProduct
+            }
+        })
+        return sum
+    }
+
+    const somaTotal = addPriceProducts(itemInCart);
+
+
     useEffect(() => {
         const findItems = product.filter(value => item.includes(value.id))
         setItemInCart(findItems)
+
     },[item, product])
 
-    const [addItem, setAddItem] = useState<number>(0);
+    const [addItem, setAddItem] = useState<number>(itemInCart.length);
     const [cep, setCep] = useState<string>('');
     const [dataCep, setDataCep] = useState({
         bairro: '',
@@ -83,7 +98,7 @@ export default function Carrinho() {
 
     return(
         <>
-            <SectionTitle>
+            {/* <SectionTitle>
                 <p>
                     SELECIONE O ENDEREÇO
                 </p>
@@ -95,12 +110,12 @@ export default function Carrinho() {
                         placeholder="Digite o CEP"
                     />
 
-                    {/* <ButtonComponent 
+                    <ButtonComponent 
                     active
                     onClick={() => sendCep()}
                     > 
                         OK 
-                    </ButtonComponent> */}
+                    </ButtonComponent>
                 </div>
 
                 <div className="container-address">
@@ -117,11 +132,16 @@ export default function Carrinho() {
                     </p>
                 </div>
 
-            </SectionTitle>
+            </SectionTitle> */}
 
             <Body>
             <Container>
                 {
+                    itemInCart.length === 0 ?
+                        <p style={{color: "lightslategray"}}>
+                            Seu Carrinho está vazio.
+                        </p>
+                    :
                     itemInCart?.map((value: {
                         value: string;
                         name: string;
@@ -130,19 +150,35 @@ export default function Carrinho() {
                         brand: string,
                     }) => {
                         return(
-                            <Box key={value.id}>
-                                <Image id="img-item"  alt="" src={value.image} width={100} height={90} />
+                        <ContainerBox key={value.id}>
+                            <Box>
+                                <ContainerImage>
+                                    <Image 
+                                    id="img-item"  
+                                    alt="" 
+                                    src={value.image} 
+                                    width={100} 
+                                    height={90} 
+                                    />
+                                </ContainerImage>
                                 <ProductDetails>
-                                    <p>{value.name}</p>
-                                    <p>R$ {value.price}</p>
-                                    <p>{value.brand}</p>
+                                    <p id="title-product">{value.name}</p>
+                                    <ContainerOptionItem>
+                                        <p>Excluir</p>
+                                        <p>Salvar</p>
+                                        <p>Comprar</p>
+                                    </ContainerOptionItem>
                                 </ProductDetails>
-                                
-                                <ProductAmount>
-                                    
-                                    <p>Quantidade</p>
 
+                                <ProductAmount>
+                                    {/* <p>Quantidade</p> */}
                                     <ContainerInput>
+                                        <IoIosRemoveCircleOutline 
+                                                size={25} 
+                                                color="red" 
+                                                cursor="pointer"
+                                                onClick={handleDecrement}
+                                            />
                                         <input type="number" value={addItem} />
                                         <BiPlusCircle 
                                             size={25} 
@@ -150,62 +186,66 @@ export default function Carrinho() {
                                             cursor="pointer"
                                             onClick={handleIncrement}
                                         />
-                                        <IoIosRemoveCircleOutline 
-                                            size={25} 
-                                            color="red" 
-                                            cursor="pointer"
-                                            onClick={handleDecrement}
-                                        />
-                                        <button onClick={() => removeItem(value.id)}>Remover</button>
+                                     
+                                        {/* <button 
+                                        onClick={() => removeItem(value.id)}>
+                                            Remover
+                                        </button> */}
                                     </ContainerInput>
 
                                 </ProductAmount>
+
+                                <PriceItem>
+                                    <p>R${value.price}</p>
+                                </PriceItem>
                             </Box>
+                        </ContainerBox>
                         )
                     })
                 }
-
             </Container>
-
+            
             <Value>
                 <ValueContainer>
-                    <p className="title">Resumo</p>
-                    <div className="container-box">
-                        <p className="text-box">Valor dos Produtos: </p>
-                        <span>R$ 625,00</span>
-                    </div>
-                    <hr></hr>
-                    <div className="container-box">
-                        <p className="text-box">Frete: </p>
-                        {
-                            priceDelivery ?
-                            <span>{randomValue()}</span>
-                            :
-                            null
-                        }
-                    </div>
-                    <div className="container-box">
-                        <p className="text-box">Total à prazo: </p>
-                        <span>R$ 625,00</span>
-                    </div>
+                                <p className="title">Resumo da compra</p>
+                                <div className="container-box">
+                                    <p className="text-box">
+                                      Produtos ({item.length}) 
+                                    </p>
+                                    <span>R$ {somaTotal.toFixed(2)}</span>
+                                </div>
+                                <hr></hr>
+                                <div className="container-box">
+                                    <p className="text-box">Frete: </p>
+                                    {
+                                        priceDelivery ?
+                                        <span>{randomValue()}</span>
+                                        :
+                                        null
+                                    }
+                                </div>
+                                <div className="container-box">
+                                    <p className="text-box">Total </p>
+                                    <span>R$ {somaTotal.toFixed(2)}</span>
+                                </div>
                 </ValueContainer>
 
                 <PixBox>
                     <BoxPayment>
                         <p>Valor à vista no Pix:</p>
-                        <span>R$ 625,00</span>
-                        <p>Economize: R$ 0,00</p>
+                        <span>R$ {somaTotal.toFixed(2)}</span>
+                        {/* <p>Economize: R$ 0,00</p> */}
                     </BoxPayment>
                 </PixBox>
 
                 <ContainerButton>
                     <StyledButton active>
-                        IR PARA O PAGAMENTO
+                        Continuar a compra
                     </StyledButton>
                     
-                    <StyledButton>
+                    {/* <StyledButton>
                         CONTINUAR COMPRANDO
-                    </StyledButton>
+                    </StyledButton> */}
                 </ContainerButton>
 
             </Value>

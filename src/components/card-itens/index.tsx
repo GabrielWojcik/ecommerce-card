@@ -94,8 +94,11 @@ export default function CardItens(){
                     </ContainerBtn>
                     <ContainerBtn>
                         <strong 
+                        role='button'
                         id="text-add-item"
-                        onClick={() => selectedItem(value.id)}>
+                        onClick={() => selectedItem(value.id)}
+                        data-testid={`botao-${value.id}`}
+                        >
                             Adicionar ao Carrinho
                         </strong>
                         <AiOutlineShoppingCart size={15} /> 

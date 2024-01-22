@@ -62,14 +62,19 @@ export const Body = styled.div`
     }
 
 `
+export const ContainerBox = styled.div`
+    width: 70%;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+`
+
+export const ContainerImage = styled.div`
+    width: 25%;
+`
 
 export const Box = styled.div`
     display: flex;
-    justify-content: space-between;
-    border: 1px solid;
-    border-radius: 5px;
-    border-color: #FF005C;
-    width: 95%;
+    padding: 24px;
 
     #img-item {
         border-top-left-radius: 5px;
@@ -86,23 +91,40 @@ export const Box = styled.div`
 export const ProductDetails = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
+    width: 50%;
+    padding-left: 22px;
+    
+    #title-product {
+        font-weight: bold;
+    }
+`
+export const ContainerOptionItem = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+    gap: 1rem;
+    color: #3483fa;
+    cursor: pointer;
 `
 
 export const ProductAmount = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-left: 1px solid;
-    align-items: center; 
-    border-color: #FF005C;
     width: 25%;
 
     input {
         width: 50%;
     }
 
+`
+export const PriceItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    line-height: 18px;
+    text-align: right;
 `
 
 export const ContainerInput = styled.div`
@@ -117,6 +139,7 @@ export const ContainerInput = styled.div`
         border-radius: 5px;
         border-color: #FF005c;
         outline: none;
+        padding: 5px;
     }
 
 `
@@ -124,9 +147,8 @@ export const ContainerInput = styled.div`
 export const Value = styled.div`
     width: 30%;
     height: 100vh;
-    border-left: 1px solid white;
     background-color: white;
-
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
     position: absolute;
     right: 0;
     top: 4.5rem;
@@ -142,6 +164,8 @@ export const Value = styled.div`
 `
 export const ValueContainer = styled.div`
     padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+
 
     .title {
         font-weight: bold;
@@ -158,7 +182,7 @@ export const ValueContainer = styled.div`
 
     .text-box {
         font-size: 12px;
-        color: #FF005C;
+        color: #000000;
         margin: 15px;
     }
 
@@ -213,3 +237,4 @@ export const StyledButton = styled.button<ButtonProps>`
     border-radius: 5px;
     cursor: pointer;
 `
+
