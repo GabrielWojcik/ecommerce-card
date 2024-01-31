@@ -9,6 +9,7 @@ import { ShopContext } from "@/src/context/ShopContext"
 import { useContext } from "react"
 import Link from "next/link"
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import FeedbackProduct from "@/src/components/Feedback-Product"
 
 export default function Product() {
     const { selectedItem } = useContext(ShopContext);
@@ -61,7 +62,10 @@ export default function Product() {
                     />
 
                     <Assessment />
-
+                    <FeedbackProduct 
+                        name="" 
+                        comentary=""
+                    />
 
 
                 </ContainerItem>

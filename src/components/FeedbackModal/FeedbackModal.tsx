@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-// import ReactStars from "react-rating-stars-component";
 import { AiFillStar } from 'react-icons/ai'
 import { Form, StarContainer, TitleModal, InputContainer } from './styles';
 import { Rating } from 'react-simple-star-rating'
+import feedbackServices from '@/src/services/feedback/feedbackServices';
 
 interface PropsModal {
     openModal: any;
@@ -25,16 +25,23 @@ const customStyles = {
 
 export default function FeedbackModal( props:PropsModal ) {
   const { openModal, closeModal } = props
+  const [rating, setRating] = useState<number>(0)
+  const [userName, setUserName] = useState<string>('')
+  const [userEmail, setUserEmail] = useState<string>('')
+  const [comentary, setComentary] = useState<string>('')
 
-  const [rating, setRating] = useState(0)
-
-  // Catch Rating value
-  const handleRating = (rate: number) => {
-    setRating(rate)
-
-    // other logic
+  async function sendFeedback() {
+     try {
+        const response = await feedbackServices.sendFeedback(userName, comentary)
+        console.log('Resposta do servidor', response.json)
+     } catch (error) {
+      console.log('Erro ao enviar feedback', error)
+     }
   }
 
+  const handleRating = (rate: number) => {
+    setRating(rate)
+  }
     return(
     <div>
         <Modal
@@ -57,13 +64,17 @@ export default function FeedbackModal( props:PropsModal ) {
             </TitleModal>
              
               <InputContainer>
-                <label htmlFor="">Nome e sobrenome:</label>
-                <input />
+                <label htmlFor="">Nome:</label>
+                <input 
+                  onChange={(e:any) => setUserName(e.target.value)} 
+                />
               </InputContainer>
 
               <InputContainer>
                 <label htmlFor="">Email:</label>
-                <input />
+                <input 
+                  onChange={(e:any) => setUserEmail(e.target.value)} 
+                />
               </InputContainer>
               
               <InputContainer>
@@ -75,14 +86,17 @@ export default function FeedbackModal( props:PropsModal ) {
 
               <InputContainer>
                 <label htmlFor="">Escreva sua mensagem:</label>
-                <textarea placeholder='Escreva sua mensagem aqui...'></textarea>
+                <textarea 
+                  placeholder='Escreva sua mensagem aqui...'
+                  onChange={(e:any) => setComentary(e.target.value)}
+                />
               </InputContainer>
-
-              
 
               <p>Ao avaliar você concorda com o tratamento dos seus dados pessoais conforme a nossa Política</p>
               <div id='btn-avaliar'>
-                <button>AVALIAR</button>
+                <button onClick={() => sendFeedback()}>
+                  AVALIAR
+                </button>
               </div>
             </Form>
       </Modal>

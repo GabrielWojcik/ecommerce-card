@@ -13,7 +13,7 @@ datasource db {
 //schema
 model Post {
   id            String @id @default(cuid())
-  title         String @db.VarChar(255)
+  nome         String @db.VarChar(255)
   createdAt     DateTime @default(now()) @db.Timestamp(6)
   content       String?
 }
