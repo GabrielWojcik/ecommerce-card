@@ -3,14 +3,10 @@ import { BiPlusCircle } from 'react-icons/bi';
 import { Key, useContext, useEffect, useState } from "react"
 import { ShopContext } from "@/src/context/ShopContext"
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
-import { Container, SectionTitle, Box, ProductDetails, ProductAmount, 
+import { Container, Box, ProductDetails, ProductAmount, 
 ContainerInput, Value, Body, ValueContainer, PixBox, BoxPayment, ContainerButton, 
 StyledButton, ContainerBox, ContainerOptionItem, PriceItem, ContainerImage } from "../styles/cart/styles"
-import InputComponent from "@/src/components/input/input";
-import ButtonComponent from "@/src/components/button-component/buttom";
 import CepService from "../src/services/cep/apiServices";
-import { BiMap } from "react-icons/bi";
-import { BsHouseDoor, BsMailbox } from "react-icons/bs";
 import { PRODUCTS } from "@/src/data/products";
 import Link from "next/link";
 

@@ -8,7 +8,7 @@ export const ContainerFooter = styled.footer`
     justify-content: center;
 
     height: 300px;
-    font-size: 38px;
+    /* font-size: 38px; */
     color: #FF005C;
     margin: 0;
     font-family: 'Lobster', sans-serif;
