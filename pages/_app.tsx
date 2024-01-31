@@ -6,6 +6,7 @@ import AuthContextprovider from '@/src/context/AuthContext'
 import ShopContextProvider from '../src/context/ShopContext'
 import { CartProvider } from '../src/context/CartContext/index'
 import Footer from '@/src/components/footer'
+import NavBarAuth from "../src/components/NavBarAuth/Login"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
       </Head>
-        <NavBar />
+      <NavBarAuth />
+        {/* <NavBar /> */}
         <Component {...pageProps} />
         <Footer />
     </ShopContextProvider> 

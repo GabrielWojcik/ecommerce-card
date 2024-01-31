@@ -16,9 +16,6 @@ model Post {
   title         String @db.VarChar(255)
   createdAt     DateTime @default(now()) @db.Timestamp(6)
   content       String?
-  published     Boolean @default(false)
-  authorId      String
-  author User   @relation(fields: [authorId], references: [id])
 }
 
 model Account {
@@ -56,7 +53,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  posts         Post[]
+  // Post         Post[]
 }
 
 model VerificationToken {
