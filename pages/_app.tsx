@@ -5,7 +5,7 @@ import Head from 'next/head'
 import AuthContextprovider from '@/src/context/AuthContext'
 import ShopContextProvider from '../src/context/ShopContext'
 import { CartProvider } from '../src/context/CartContext/index'
-// import AuthContextprovider from '../src/context/AuthContext'
+import Footer from '@/src/components/footer'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
         <NavBar />
         <Component {...pageProps} />
+        <Footer />
     </ShopContextProvider> 
       </AuthContextprovider> 
     </CartProvider>

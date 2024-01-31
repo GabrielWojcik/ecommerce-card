@@ -12,6 +12,7 @@ import CepService from "../src/services/cep/apiServices";
 import { BiMap } from "react-icons/bi";
 import { BsHouseDoor, BsMailbox } from "react-icons/bs";
 import { PRODUCTS } from "@/src/data/products";
+import Link from "next/link";
 
 export default function Carrinho() {
     const [itemInCart, setItemInCart] = useState<any>([]);
@@ -171,7 +172,6 @@ export default function Carrinho() {
                                 </ProductDetails>
 
                                 <ProductAmount>
-                                    {/* <p>Quantidade</p> */}
                                     <ContainerInput>
                                         <IoIosRemoveCircleOutline 
                                                 size={25} 
@@ -239,9 +239,11 @@ export default function Carrinho() {
                 </PixBox>
 
                 <ContainerButton>
-                    <StyledButton active>
-                        Continuar a compra
-                    </StyledButton>
+                    <Link href={"/frete"} >
+                        <StyledButton active>
+                            Continuar a compra
+                        </StyledButton>
+                    </Link>
                     
                     {/* <StyledButton>
                         CONTINUAR COMPRANDO

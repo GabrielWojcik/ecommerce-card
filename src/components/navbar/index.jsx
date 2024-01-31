@@ -122,6 +122,9 @@ export default function MenuMain() {
                     <Link href={"/carrinho"}>
                         <div>
                             <MdOutlineShoppingBag size={30} color="#FFF" />
+                            <strong style={{color: "#FFF"}}>
+                                {item.length}
+                            </strong>
                         </div>
                     </Link>                    
                     <div>

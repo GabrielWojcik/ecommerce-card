@@ -66,10 +66,24 @@ export const ContainerBox = styled.div`
     width: 70%;
     background-color: #FFF;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+
+    @media screen and (max-width: 999px) {
+        width: 100%;
+    }
+
 `
 
 export const ContainerImage = styled.div`
     width: 25%;
+
+    @media screen and (max-width: 999px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px;
+    }
 `
 
 export const Box = styled.div`
@@ -83,6 +97,8 @@ export const Box = styled.div`
 
     @media screen and (max-width: 999px) {
         width: 100%;
+        flex-direction: column;
+        padding: 0px;
     }
 
 
@@ -96,6 +112,20 @@ export const ProductDetails = styled.div`
     
     #title-product {
         font-weight: bold;
+    }
+
+    @media screen and (max-width: 999px) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px;
+        padding-left: 0px;
+
+        #title-product {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
     }
 `
 export const ContainerOptionItem = styled.div`
@@ -117,6 +147,9 @@ export const ProductAmount = styled.div`
         width: 50%;
     }
 
+    @media screen and (max-width: 999px) {
+        width: 100%;
+    }
 `
 export const PriceItem = styled.div`
     display: flex;
@@ -125,6 +158,13 @@ export const PriceItem = styled.div`
     width: 25%;
     line-height: 18px;
     text-align: right;
+
+    @media screen and (max-width: 999px) {
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        
+    }
 `
 
 export const ContainerInput = styled.div`
@@ -142,6 +182,11 @@ export const ContainerInput = styled.div`
         padding: 5px;
     }
 
+    @media screen and (max-width: 1000px) {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
 `
 
 export const Value = styled.div`
@@ -156,7 +201,6 @@ export const Value = styled.div`
     @media screen and (max-width: 999px) {
         position: relative;
         width: 100%;
-
     }
 
 
@@ -227,14 +271,18 @@ export const ContainerButton = styled.div`
 `
 
 export const StyledButton = styled.button<ButtonProps>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${props => props.active ? '#FF005C' : 'white'};
     border-color: ${props => props.active ? '#FF005C' : '#FF005C'};;
     color: ${props => props.active ? 'white' : 'black'};
-    width: 50%;
+    width: 100%;
     height: 40px;
     border: none;
     border: 1px solid;
     border-radius: 5px;
     cursor: pointer;
+    padding: 15px;
 `
 
