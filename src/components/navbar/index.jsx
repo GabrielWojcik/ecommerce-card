@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart, AiOutlineUser, AiOutlineClose } from "react-icon
 import { CiDiscount1 } from 'react-icons/ci';
 import Link from "next/link";
 import { AuthContext } from '@/src/context/AuthContext';
-import { BiUserCircle, BiPurchaseTagAlt, BiLogIn } from "react-icons/bi";
+import { BiUserCircle } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiddenMenu, HiddenCLose, Sections } from "../../../styles/navbar/styles";
 import { IoPricetagOutline } from "react-icons/io5";
@@ -28,46 +28,41 @@ export default function MenuMain() {
             }
         }
         loggedUser()
-        console.log('userLogged', userLogged)
         const dataLocalStorage = JSON.parse(localStorage.getItem('userDataLogged'));
-
-        console.log('dataLocalStorage', dataLocalStorage);
-        console.log('user', user)
-
     },[user, userLogged])
 
     return(
         <>
         <header>
         <nav>
-        <div className="container">
-            <div className="container-navbar">
+        <div className="hidden md:flex">
+            <div className="flex fixed bg-pink-600 w-screen h-14 py-3 justify-around items-center">
                <Link href="/">
-                    <p className="logo">
+                    <p className="m-0 text-4xl cursor-pointer text-white">
                         Beauty
                     </p>
                </Link>
                <Link href="/primeira-compra">
-               <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
+               <div className="flex items-center gap-1 text-white">
                     <IoPricetagOutline size={25} />
-                    <p id="sacola" className="sac">
-                         Compra
+                    <p>
+                        Compra
                     </p>
                 </div>
                 </Link>
               
                
                <Link href="/promocoes">
-                    <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
-                    <CiDiscount1 size={25} />
-                    <p id="confirmacao">
-                        Promoções
-                    </p>
+                    <div className="flex items-center gap-1 text-white">
+                        <CiDiscount1 size={25} />
+                        <p>
+                            Favoritos
+                        </p>
                     </div>
                </Link>
 
                 <Link href="/carrinho">
-                <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
+                <div className="flex items-center gap-1 text-white">
                     <AiOutlineShoppingCart size={25} />
                     <strong>
                         {item.length}
@@ -80,35 +75,34 @@ export default function MenuMain() {
 
                  {userLogged ? 
                     <Link href="/account">
-                        <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}> 
-                        <AiOutlineUser size={25} />
-                        {
-                            user === 'undefined' ?
-                            <p>
-                                {dataLocalStorage}
-                            </p>
-                            :
-                            <p>
-                                {user}
-                            </p>
-                        }
+                        <div className="flex items-center gap-1 text-white">
+                            <AiOutlineUser size={25} />
+                            {
+                                user === 'undefined' ?
+                                <p>
+                                    {dataLocalStorage}
+                                </p>
+                                :
+                                <p>
+                                    {user}
+                                </p>
+                            }
                         </div>
                     </Link> 
                     : 
                     <Link href="/login">
-                        <div style={{display: 'flex', alignItems: 'center', gap: '5px', color:'#fff'}}>
-                         <AiOutlineUser size={25} />
-                        <p>
-                            Entre na sua conta
-                        </p>
+                        <div className="flex items-center gap-1 text-white">
+                            <AiOutlineUser size={25} />
+                            <p>
+                                Entre na sua conta
+                            </p>
                         </div>
                     </Link>
                  }
             </div>
         </div>
-
-        <div className="container-navbar-mobile">
-           <div style={{display: "flex", alignContent: "center", justifyContent: "space-between", width: '100%'}}>
+        <div className="flex items-center w-full justify-between bg-pink-600 p-4 md:hidden">
+            <div className="flex items-center gap-1 text-white">
                 <div  onClick={() => setIsActiveMenu(true)}>
                     <IoMenuOutline size={30} color="#FFF" />
 
@@ -155,16 +149,6 @@ export default function MenuMain() {
             :
             (
                 <></>
-                // <div className="container-text-icon">
-                //         <Link href="/login">
-                //             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                //                 <BiLogIn size={25} color="#FFF" />
-                //             </div>
-                //             <div>
-                //                 <p>Entrar / Cadastro</p>
-                //             </div>
-                //         </Link>
-                // </div>
             )
            }
           <div>

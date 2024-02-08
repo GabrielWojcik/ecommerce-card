@@ -12,7 +12,6 @@ import Link from "next/link";
 
 export default function Carrinho() {
     const [itemInCart, setItemInCart] = useState<any>([]);
-
     const { item, removeItem } = useContext(ShopContext);
 
     const product = PRODUCTS;
@@ -93,6 +92,10 @@ export default function Carrinho() {
         return numeroEmReal
     }
 
+    function handleDeletedItem(id:any) {
+        removeItem(id)
+    }
+
     return(
         <>
             {/* <SectionTitle>
@@ -161,8 +164,9 @@ export default function Carrinho() {
                                 <ProductDetails>
                                     <p id="title-product">{value.name}</p>
                                     <ContainerOptionItem>
-                                        <p>Excluir</p>
-                                        <p>Salvar</p>
+                                        <p onClick={() => handleDeletedItem(value.id)}>
+                                            Excluir
+                                        </p>
                                         <p>Comprar</p>
                                     </ContainerOptionItem>
                                 </ProductDetails>

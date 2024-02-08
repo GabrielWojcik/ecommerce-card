@@ -22,7 +22,6 @@ class FeedbackService {
     public async getFeedback(): Promise<any> {
         try {
             const { data } = await apiBase.get('/get-feedback')
-            console.log('DATAAAA', data)
             return data
         } catch (err: any) {
             console.log('error in service getFeedback', err)

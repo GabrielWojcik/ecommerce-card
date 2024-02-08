@@ -9,6 +9,7 @@ import { Key, useState } from "react"
 import { useContext } from "react"
 import { ShopContext } from "@/src/context/ShopContext"
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { toast } from "sonner"
 
 export default function CardItens(){
     
@@ -25,6 +26,10 @@ export default function CardItens(){
             setLikeProduct(true)
             setProductLikeClick(idItem)
         }
+    }
+    
+    function activeSuccees() {
+        toast.success('Item adicionado ao carrinho!')
     }
 
     return(
@@ -96,7 +101,9 @@ export default function CardItens(){
                         <strong 
                         role='button'
                         id="text-add-item"
-                        onClick={() => selectedItem(value.id)}
+                        onClick={() => {selectedItem(value.id),
+                            activeSuccees()
+                        }}
                         data-testid={`botao-${value.id}`}
                         >
                             Adicionar ao Carrinho

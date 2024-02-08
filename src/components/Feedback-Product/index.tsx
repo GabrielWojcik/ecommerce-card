@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react";
 import { ContainerFeedback } from "./styles";
 import feedbackServices from '@/src/services/feedback/feedbackServices';
 
@@ -7,13 +7,17 @@ interface FeedBackProps {
     comentary: string;
 }
 
+// interface dataFeedback {
+//     feedback: []
+// }
+
 export default function FeedbackProduct(props: FeedBackProps) {
-    const [feedback, setFeedback] = useState<any>([]);
+    const [feedback, setFeedback] = useState<any>([])
 
     async function getFeedback() {
         try {
            const response = await feedbackServices.getFeedback()
-           setFeedback(response)
+           setFeedback(response.list)
            console.log('Resposta do servidor GET', response)
         } catch (error) {
          console.log('Erro ao enviar feedback', error)
@@ -28,13 +32,14 @@ export default function FeedbackProduct(props: FeedBackProps) {
     return(
         <ContainerFeedback>
             {
-                feedback.length === 0 
-                ? 
-                    <p>Este produto ainda não tem avaliações</p> 
-                :   
-                    <p>Feedbacks</p>
-
+                feedback.map((item: { content: string; createdAt: string; id: string; title: string }) => (
+                    <div key={item.id}>
+                    <h1>{item.title}</h1>
+                    <p>{item.content}</p>
+                    </div>
+                ))
             }
+             
         </ContainerFeedback>
     )
 }
