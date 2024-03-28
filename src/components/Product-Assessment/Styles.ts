@@ -28,6 +28,5 @@ export const ContainerAssessment = styled.div`
 `
 
 export const ContainerStar = styled.div`
-
-   
+    display: flex;
 `

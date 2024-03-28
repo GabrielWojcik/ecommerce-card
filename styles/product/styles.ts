@@ -8,6 +8,7 @@ export const ContainerItem = styled.div`
 export const CardImage = styled.div`
     width: 350px;
     height: 55vh;
+    padding-top: 1rem;
     max-width: 1330px;
 
 

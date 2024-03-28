@@ -36,7 +36,7 @@ export default function MenuMain() {
         <header>
         <nav>
         <div className="hidden md:flex">
-            <div className="flex fixed bg-pink-600 w-screen h-14 py-3 justify-around items-center">
+            <div className="flex  bg-pink-600 w-screen h-14 py-3 justify-around items-center">
                <Link href="/">
                     <p className="m-0 text-4xl cursor-pointer text-white">
                         Beauty

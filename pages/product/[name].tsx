@@ -33,7 +33,7 @@ export default function Product() {
                     <ContainerMain>
                         <ContainerImage>
                             <CardImage>
-                                <Image src={item.image} alt="" layout="responsive" />
+                                <Image src={item.image} alt="" layout="responsive" placeholder="blur"/>
                             </CardImage>
                         </ContainerImage>
                         
