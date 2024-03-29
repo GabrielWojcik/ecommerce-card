@@ -2,124 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lobster', sans-serif;
-    text-decoration: none;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
 
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
 }
 
-@media screen and (max-width: 999px) {
-  .container {
-      display: none;
-  }
-
-  .container-navbar-mobile {
-      display: flex;
-      /* justify-content: center; */
-      weight: 100%;
-      background: #FF005C;
-      padding: 1rem;
-
-      /* justify-content:  space-between;
-      padding: 10px;
-      border-bottom: 1px solid #FF005C;
-      background-color: #FF005C; */
-  }
-  .header-navbar-mobile {
-    display: flex;
-    alignContent: "center";
-    justifyContent: "space-between";
-    width: 100%;
-  }
-  .header-nav-bar-icons {
-
-  }
-
-  .header-nav-bar {
-    display: flex;
-    justify-content: 'space-around'
-  }
-
-  .container-text-icon {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: #FFF; */
-  }
-  
-  
-  .menu {
-      display: flex;
-      width: 35px;
-      padding: 5px;
-      align-items: flex-start;
-      align-self: flex-start;
-  }
-
-  .icon-header {
-      width: 25px;
-      height: 25px;
-  }
-}
-
-@media screen and (min-width: 1000px) { 
-  .container-navbar-mobile{
-      display: none;
-  }
-  .container-navbar {
-
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      padding: 10px;
-      height: 37px;
-      /* background-color: #FF005C; */
-      color: #fff;
-  }
-
-  .container  {
-      font-size: 14px;
-      font-family: 'Roboto', sans-serif;    
-      font-weight: 400;
-      line-height: 24px;
-  }
-  
-  #pagamento {
-        color: #fff;
-       width: 72px;
-       height: 24px;
-  }
-  a:link{
-      text-decoration: none!important;
-    }
-  
-  .selected {
-      color: #ffd900;
-  }
-  
-}
-
-
-/* BANNER */
-.container-banner-secundario {
-    width: 100%;
-    height: 100%;
-
-}
-#img-banner-secundario {
-    width: 100%;
-    object-fit: contain;
-}
-
-@media screen and (min-width: 1000px) {
-    #img-banner-secundario {
-        width: 100%;
-        /* object-fit: contain; */
-    }
-}

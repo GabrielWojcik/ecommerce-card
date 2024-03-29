@@ -17,7 +17,7 @@ export default function Chips() {
        {
         chipsData.map(value => {
             return(
-            <div className={`flex justify-center items-center rounded border-2 cursor-pointer ${value.text === 'outlet' ? 'border-amber-600' : 'border-pink-500'} p-4 w-64 h-20 gap-5`}>
+            <div className={`flex flex-col  md:flex-row justify-center items-center rounded border-2 cursor-pointer ${value.text === 'outlet' ? 'border-amber-600' : 'border-pink-500'} p-4 w-64 h-20 gap-5`}>
                 <div className="flex justify-center items-center gap-5">
                     <div>
                         {value.image}
