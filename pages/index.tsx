@@ -1,7 +1,6 @@
 import CardItens from "@/src/components/card-itens";
 import Banner from "../src/components/banner";
 import { HomeContainer, MainContainer, Title} from "../styles/home/styles";
-import { CardItem } from "@/src/components/card-item";
 import Chips from "@/src/components/chips";
 import Brands from "@/src/components/brands";
 
@@ -10,7 +9,9 @@ export default function Home() {
         <HomeContainer>
             <Banner />
                 <Title>
-                    <h1>Nossos Produtos</h1>
+                    <h1 className="text-3xl text-center">
+                        Nossos Produtos
+                    </h1>
                 </Title>
             <MainContainer>
                 <CardItens />

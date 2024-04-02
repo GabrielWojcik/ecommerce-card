@@ -6,18 +6,18 @@ import { CiStar } from "react-icons/ci";
 
 export default function Chips() {
     const chipsData = [
-        {image: <BsTicketPerforated size={40} color="#f472b6" />, text: 'escolha seu cupom'},
-        {image: <CgMathPercent size={40} color="#d97706"  />, text: 'outlet'},
-        {image: <MdOutlinePhoneIphone size={40} color="#f472b6"  />, text: '+ deconto no APP'},
-        {image: <MdFavoriteBorder size={40} color="#f472b6"   />, text: 'programa de afiliação'},
-        {image: <CiStar size={40} color="#f472b6" />, text: 'lançamentos'},
-]
+        {id:0, image: <BsTicketPerforated size={40} color="#f472b6" />, text: 'escolha seu cupom'},
+        {id:2, image: <CgMathPercent size={40} color="#d97706"  />, text: 'outlet'},
+        {id:3, image: <MdOutlinePhoneIphone size={40} color="#f472b6"  />, text: '+ deconto no APP'},
+        {id:4, image: <MdFavoriteBorder size={40} color="#f472b6"   />, text: 'programa de afiliação'},
+        {id:5, image: <CiStar size={40} color="#f472b6" />, text: 'lançamentos'},
+    ]
     return(
        <>
        {
         chipsData.map(value => {
             return(
-            <div className={`flex flex-col  md:flex-row justify-center items-center rounded border-2 cursor-pointer ${value.text === 'outlet' ? 'border-amber-600' : 'border-pink-500'} p-4 w-64 h-20 gap-5`}>
+            <div key={value.id} className={`flex flex-col  md:flex-row justify-center items-center rounded border-2 cursor-pointer ${value.text === 'outlet' ? 'border-amber-600' : 'border-pink-500'} p-4 w-64 h-20 gap-5`}>
                 <div className="flex justify-center items-center gap-5">
                     <div>
                         {value.image}

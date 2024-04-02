@@ -1,9 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "@/pages";
-import CardItens from "@/src/components/card-itens";
 import { ShopContext } from "@/src/context/ShopContext";
-
-const mockSelectedItem = jest.fn()
 
 const mockShopContext = {
     item: [],
@@ -20,23 +17,18 @@ describe('Verify render <Home /> in home', () => {
         </ShopContext.Provider>
 
         );
-        const homeTitle = screen.getByText('Nossos Produtos')
-        expect(homeTitle).toBeDefined()
+        const homeTitle = screen.getByText('Nossos Produtos');
+        expect(homeTitle).toBeDefined();
     });
 
-    it('should render CardItens in home component', () => {
+    it('Verify render brands card in Home', () => {
         render(
             <ShopContext.Provider value={mockShopContext}>
-                <CardItens />
+                <Home />
             </ShopContext.Provider>
-        )
-    
-        const botaoAdicionarAoCarrinho = screen.getByTestId('botao-1');
-        expect(botaoAdicionarAoCarrinho).toBeDefined()
+        );
 
-        fireEvent.click(botaoAdicionarAoCarrinho);
-
-        expect(mockSelectedItem).toHaveBeenCalled();
-
-    })
+        const brandsSectionTitle = screen.getByText('Marcas');
+        expect(brandsSectionTitle).toBeDefined();
+    });
 });

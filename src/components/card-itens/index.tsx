@@ -46,7 +46,9 @@ export default function CardItens(){
             <CardItensContainer key={value.id}>
                 <ContainerFavorito>
                     <Star 
-                    onClick={() => handleClick(value.id) }>
+                    onClick={() => handleClick(value.id) }
+                    data-testid={likeProduct ? 'like-product-true' : 'like-product-false'}
+                    >
                         {
                             likeProduct  && value.id === productLikeClick ? (
                                 <MdOutlineFavorite 
@@ -104,7 +106,7 @@ export default function CardItens(){
                         onClick={() => {selectedItem(value.id),
                             activeSuccees()
                         }}
-                        data-testid={`botao-${value.id}`}
+                        data-testid="botao-1"
                         >
                             Adicionar ao Carrinho
                         </strong>

@@ -40,7 +40,7 @@
     "src/context/AuthContext.ts",
     "src/components/button/index.jsx",
     "src/tests/home/home.test.js"
-, "src/context/CartContext/index.tsx", "src/context/ShopContext.js", "pages/api/routes.js", "pages/api/routes.js"  ],
+, "src/context/CartContext/index.tsx", "src/context/ShopContext.js", "pages/api/routes.js", "pages/api/routes.js", "jest.config.ts", "src/tests/navbar/navbar.js"  ],
   "exclude": [
     "node_modules"
   ]
