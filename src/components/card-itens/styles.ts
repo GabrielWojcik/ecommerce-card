@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const CardItensContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +8,7 @@ export const CardItensContainer = styled.div`
     justify-content: center;
     border: 1px solid #ebebeb;;
     margin: 5px;
+    height: auto;
 
     @media screen and (max-width: 1000px) {
         width: 90%;
@@ -27,13 +27,13 @@ export const ContainerProduct = styled.div`
 export const Star = styled.div`
     padding: 5px 10px;
     width: 50px;
-
 `
 
 export const Product = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    height: 300px;
 
     img {
         object-fit: cover;
