@@ -7,6 +7,8 @@ import ShopContextProvider from '../src/context/ShopContext'
 import { CartProvider } from '../src/context/CartContext/index'
 import Footer from '@/src/components/footer'
 import { Toaster } from 'sonner'
+import { SessionProvider } from "next-auth/react";
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -20,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
         <NavBar />
         <Toaster richColors />
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session}>
+          <Component {...pageProps} />
+        </SessionProvider>
         <Footer />
     </ShopContextProvider> 
       </AuthContextprovider> 

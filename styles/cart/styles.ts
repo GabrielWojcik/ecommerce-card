@@ -3,8 +3,6 @@ import styled from 'styled-components';
 interface ButtonProps {
     active?: boolean;
 }
-
-
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -16,8 +14,6 @@ export const Container = styled.div`
     @media screen and (max-width: 999px) {
         width: 100%;
     }
-
-   
 `
 export const SectionTitle = styled.div`
     display: flex;
@@ -49,13 +45,12 @@ export const SectionTitle = styled.div`
         .address {
             font-size: 14px;
         }
-        
     }
 
 `
-
 export const Body = styled.div`
     display: flex;
+    height: 100vh;
 
     @media screen and (max-width: 999px) {
         flex-direction: column;
@@ -163,7 +158,6 @@ export const PriceItem = styled.div`
         width: 100%;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        
     }
 `
 
@@ -196,7 +190,9 @@ export const Value = styled.div`
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
     position: absolute;
     right: 0;
-    top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     @media screen and (max-width: 999px) {
         position: relative;
@@ -239,6 +235,7 @@ export const PixBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
 `
 
 export const BoxPayment = styled.div`

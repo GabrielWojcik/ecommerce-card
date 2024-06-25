@@ -21,6 +21,7 @@ export const MainContainer = styled.div`
 
 export const Title = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 

@@ -9,6 +9,7 @@ StyledButton, ContainerBox, ContainerOptionItem, PriceItem, ContainerImage } fro
 import CepService from "../src/services/cep/apiServices";
 import { PRODUCTS } from "@/src/data/products";
 import Link from "next/link";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Carrinho() {
     const [itemInCart, setItemInCart] = useState<any>([]);
@@ -28,12 +29,9 @@ export default function Carrinho() {
     }
 
     const somaTotal = addPriceProducts(itemInCart);
-
-
     useEffect(() => {
         const findItems = product.filter(value => item.includes(value.id))
         setItemInCart(findItems)
-
     },[item, product])
 
     const [addItem, setAddItem] = useState<number>(itemInCart.length);
@@ -98,49 +96,16 @@ export default function Carrinho() {
 
     return(
         <>
-            {/* <SectionTitle>
-                <p>
-                    SELECIONE O ENDEREÇO
-                </p>
-                
-                <div className="container-cep">
-                    <InputComponent 
-                        value={cep}
-                        onChange={(e:any) => setCep(e.target.value)}
-                        placeholder="Digite o CEP"
-                    />
-
-                    <ButtonComponent 
-                    active
-                    onClick={() => sendCep()}
-                    > 
-                        OK 
-                    </ButtonComponent>
-                </div>
-
-                <div className="container-address">
-                    <p className="address">
-                        <BsHouseDoor color="#FF005C" />   Endereço: {dataCep.logradouro}
-                    </p>
-                    
-                    <p className="address">
-                        <BiMap color="#FF005C" /> Cidade: {dataCep.localidade}
-                    </p>
-                    
-                    <p className="address">
-                        <BsMailbox color="#FF005C" />   UF: {dataCep.uf}
-                    </p>
-                </div>
-
-            </SectionTitle> */}
-
             <Body>
             <Container>
                 {
                     itemInCart.length === 0 ?
-                        <p style={{color: "lightslategray"}}>
-                            Seu Carrinho está vazio.
-                        </p>
+                        <div style={{display: 'flex', gap: '8px', color: "lightslategray"}}>
+                            <AiOutlineShoppingCart size={25} />
+                            <p>
+                                 Seu Carrinho está vazio.
+                            </p>
+                        </div>                    
                     :
                     itemInCart?.map((value: {
                         value: string;
